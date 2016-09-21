@@ -1,0 +1,2 @@
+# RecyclerViewMergeAdapterDemo
+测试recycler-view-merge-adapter里面的issue问题
