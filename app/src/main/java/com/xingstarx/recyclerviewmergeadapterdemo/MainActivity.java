@@ -34,16 +34,12 @@ public class MainActivity extends AppCompatActivity {
         mergeAdapter.addAdapter(subAdapter2);
 
 // Set merge adapter to RecyclerView
-//        mRecyclerView.setAdapter(mergeAdapter);
-
-
-
-        MyRecyclerViewSubAdapter2 myRecyclerViewSubAdapter2 = new MyRecyclerViewSubAdapter2();
-        myRecyclerViewSubAdapter2.setDataList(generateDatas());
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setAdapter(myRecyclerViewSubAdapter2);
+
+        mRecyclerView.setAdapter(mergeAdapter);
+
     }
 
     private List<String> generateDatas() {
