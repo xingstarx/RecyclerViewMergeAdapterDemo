@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewMergeAdapter mergeAdapter = new RecyclerViewMergeAdapter();
 
 // Add any number of subadapters to merge adapter
-        MyRecyclerViewSubAdapter subAdapter1 = new MyRecyclerViewSubAdapter();
+        final MyRecyclerViewSubAdapter subAdapter1 = new MyRecyclerViewSubAdapter();
         MyRecyclerViewSubAdapter subAdapter2 = new MyRecyclerViewSubAdapter();
 
         subAdapter1.setDataList(generateDatas());
@@ -39,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         mRecyclerView.setAdapter(mergeAdapter);
+
+
+        mRecyclerView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                subAdapter1.addData(5, "Android Developer inserted");
+                subAdapter1.notifyItemInserted(5);
+                mRecyclerView.removeCallbacks(this);
+                mRecyclerView.postDelayed(this, 1500);
+            }
+        }, 1500);
 
     }
 
