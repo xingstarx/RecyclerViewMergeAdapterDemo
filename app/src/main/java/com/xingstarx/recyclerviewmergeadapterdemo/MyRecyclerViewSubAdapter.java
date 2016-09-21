@@ -20,8 +20,16 @@ public class MyRecyclerViewSubAdapter extends RecyclerViewSubAdapter<MyRecyclerV
         this.dataList = dataList;
     }
 
+    public List<String> getDataList() {
+        return dataList;
+    }
+
     public void addData(int index, String data) {
         dataList.add(index, data);
+    }
+
+    public void removeData(int index) {
+        dataList.remove(index);
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

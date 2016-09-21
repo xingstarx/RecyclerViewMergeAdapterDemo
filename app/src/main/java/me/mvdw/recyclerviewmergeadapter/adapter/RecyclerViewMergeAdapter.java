@@ -257,6 +257,9 @@ public class RecyclerViewMergeAdapter<T extends RecyclerView.Adapter> extends Re
         public void onItemRangeRemoved(int positionStart, int itemCount) {
             int mergePositionStart = getMergePositionForLocalPosition(mAdapter, positionStart);
 
+            Log.e(TAG, "onItemRangeRemoved positionStart == " + positionStart + ", itemCount == " + itemCount +
+                    ", mergePositionStart == " + mergePositionStart);
+
             super.onItemRangeRemoved(mergePositionStart, itemCount);
             notifyItemRangeRemoved(mergePositionStart, itemCount);
         }

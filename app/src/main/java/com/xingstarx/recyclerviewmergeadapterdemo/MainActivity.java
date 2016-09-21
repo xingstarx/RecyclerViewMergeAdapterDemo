@@ -44,10 +44,12 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                subAdapter1.addData(5, "Android Developer inserted");
-                subAdapter1.notifyItemInserted(5);
-                mRecyclerView.removeCallbacks(this);
-                mRecyclerView.postDelayed(this, 1500);
+                if(subAdapter1.getDataList().size() > 5) {
+                    subAdapter1.removeData(5);
+                    subAdapter1.notifyItemRemoved(5);
+                    mRecyclerView.removeCallbacks(this);
+                    mRecyclerView.postDelayed(this, 1500);
+                }
             }
         }, 1500);
 
