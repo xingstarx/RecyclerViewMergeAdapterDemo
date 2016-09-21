@@ -19,6 +19,10 @@ public class MyRecyclerViewSubAdapter extends RecyclerViewSubAdapter<MyRecyclerV
     public void setDataList(List<String> dataList) {
         this.dataList = dataList;
     }
+
+    public void addData(String data) {
+        dataList.add(data);
+    }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_item_data, parent, false);
